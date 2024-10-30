@@ -1,0 +1,14 @@
+name: mkcc-membership-portal
+recipe: laravel
+config:
+  webroot: public/
+  php: '8.2'
+  via: nginx
+  services:
+    appserver:
+      build_as_root:
+        - apt-get update -y
+        - docker-php-ext-install intl
+        - docker-php-ext-enable intl
+    database:
+      portforward: 37043
